@@ -69,12 +69,12 @@ form.addEventListener('submit', handleSubmit)
 
 require('dotenv').config()
 
-const express = require('express')
+import express, { json } from 'express'
 const app = express()
 
-const cors = require('cors')
+import cors from 'cors'
 
-app.use(express.json())
+app.use(json())
 app.use(cors())
 
 app.listen(SERVER_PORT, () => console.log(`Server is up on ${SERVER_PORT}`))

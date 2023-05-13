@@ -233,4 +233,16 @@ module.exports = {
             res.sendStatus(200)
         }).catch(err => console.log('error seeding DB', err))
     }
-}
+,
+
+getCities: (req, res) => {
+    sequelize.query(`SELECT FROM cities JOIN countries`)
+    .then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => console.log(err))
+    }
+,
+getCountries: (req, res) => {
+    sequelize.query(`SELECT * FROM countries`)
+    .then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => console.log(err))
+        }    }
